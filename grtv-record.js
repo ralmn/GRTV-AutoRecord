@@ -8,17 +8,23 @@ chrome.storage.sync.get({
 	streamerRequest = items.username;
 	console.log(streamerRequest);
 
+
+	var requestReloadAfterPub = false;
  
 
 	function checkForRecord(){
 
 		if(getStreamer() == streamerRequest){
-			if(isPub()){
+			if(isPub() && !requestReloadAfterPub){
 				if(document.getElementById('stop-record') != null){
 					stopRecord();
 				}else{
 					notif("c'est la pub mais pas de record lancé")
 				}
+			}else if(!isPub() && requestReloadAfterPub){
+				setTimeout(function(){
+					location.reload();
+				}, 2000);
 			}else{
 				if(document.getElementById('start-record') != null){
 					startRecord();
@@ -81,11 +87,7 @@ chrome.storage.sync.get({
 				var request = new XMLHttpRequest();
 				request.open("POST",form.getAttribute('action'));
 				request.send(formData);
-				var timeforReload = document.getElementById('spinner-01').value * 35;
-				console.log(timeforReload);
-				setTimeout(function(){
-					location.reload();
-				}, timeforReload);
+				requestReloadAfterPub = true;
 				notif("Le record est stopé");
 			}
 		}else{
