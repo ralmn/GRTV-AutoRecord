@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "GamingRoomTV auto record",
-	"version": "0.1",
+	"version": "0.2",
 	"description": "Auto record when you stream on GRTV",
 	"options_page" : "options.html",
 	"content_scripts": [ {
