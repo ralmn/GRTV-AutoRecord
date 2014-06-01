@@ -4,6 +4,7 @@
 	"version": "0.2",
 	"description": "Auto record when you stream on GRTV",
 	"options_page" : "options.html",
+
 	"content_scripts": [ {
 		"js": [ "grtv-record.js" ],
 		"matches": [ "*://www.gamingroom.tv/*" ],
@@ -18,8 +19,16 @@
 		"notifications",
 		"storage"
 		],
-		"web_accessible_resources": [
-		"48.png"
-		]
+		 
+			"web_accessible_resources": [
+			"48.png"
+			],
+			"icons": {
+				"48" : "48gris.png"
+			},
+			"browser_action": {
+				"default_icon" : "48gris.png",
+				"default_title" : "GRTV AutoReplay no loaded"
+			}
 
-	}
+		}
