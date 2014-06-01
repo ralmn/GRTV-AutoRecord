@@ -19,7 +19,7 @@ chrome.storage.sync.get({
 				if(document.getElementById('stop-record') != null){
 					stopRecord();
 				}else{
-					notif("c'est la pub mais pas de record lancé")
+					//notif("c'est la pub mais pas de record lancé")
 				}
 			}else if(!isPub() && requestReloadAfterPub){
 				setTimeout(function(){
@@ -29,7 +29,7 @@ chrome.storage.sync.get({
 				if(document.getElementById('start-record') != null){
 					startRecord();
 				}else{
-					notif("Impossible de lancer le record")
+					//notif("Impossible de lancer le record")
 					console.log(document.getElementById('start-record'))
 				}
 			}
